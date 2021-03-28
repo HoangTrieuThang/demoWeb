@@ -37,7 +37,7 @@ public class CompanyController {
     @GetMapping("/add")
     public String AddPage(Model model) {
         model.addAttribute("company", new Company());
-        return "form";
+        return "home";
     }
 
     @GetMapping("/edit/{id}")
@@ -45,7 +45,7 @@ public class CompanyController {
         Optional<Company> company = companyRepo.findById(id);
         if (company.isPresent()) {
             model.addAttribute("company", company);
-            return "form";
+            return "home";
         }
         return "error";
     }
