@@ -1,0 +1,24 @@
+body {
+    padding-top: 7rem;
+}
+
+footer {
+    margin-top: 3rem;
+    background: rgb(24, 22, 22);
+    color: white;
+    padding: 1rem 1rem;
+    font-weight: bold;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+.main-container {
+    min-height: 80vh;
+}
+
+.starter-template {
+    padding: 3rem 1.5rem;
+    text-align: center;
+}

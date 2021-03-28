@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Starter Template for Bootstrap</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/starter-template/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+
+    <main role="main" class="container main-container">
+        <div class="card">
+            <div class="card-header">
+                <div class="d-flex flex-row justify-content-between">
+                    <h5>Thêm công ty</h5>
+                </div>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="/save" th:object="${company}">
+                    <div class="form-group" style="display: none;">
+                        <label for="id">Id</label>
+                        <input type="number" class="form-control" id="id" th:field="*{id}">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Tên</label>
+                        <input type="text" class="form-control" id="name" th:field="*{name}">
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="taxCode">Mã số thuế</label>
+                        <input type="text" class="form-control" id="taxCode" th:field="*{taxCode}">
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('taxCode')}" th:errors="*{taxCode}"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="number">Vốn điều lệ</label>
+                        <input type="text" class="form-control" id="AuthorizedCapital" th:field="*{AuthorizedCapital}">
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('AuthorizedCapital')}" th:errors="*{AuthorizedCapital}"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="operationField">Lĩnh vực hoạt động</label>
+                        <input type="text" class="form-control" id="operationField" th:field="*{operationField}">
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('operationField')}" th:errors="*{operationField}"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="number">Số lượng nhân sự</label>
+                        <input type="text" class="form-control" id="staffAmount" th:field="*{staffAmount}">
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('staffAmount')}" th:errors="*{staffAmount}"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Địa chỉ</label>
+                        <input type="text" class="form-control" id="address" th:field="*{address}">
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">SĐT</label>
+                        <input type="number" class="form-control" id="phone" th:field="*{phone}">
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="groundArea">Diện tích sàn</label>
+                        <input type="number" class=" form-control" id="groundArea" th:field="*{groundArea}">
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('groundArea')}" th:errors="*{groundArea}"></small>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/popper.min.js"></script>
+    <script src="https://getbootstrap.com/docs/4.0/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

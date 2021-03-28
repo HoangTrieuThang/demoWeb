@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Starter Template for Bootstrap</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/starter-template/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="/">
+            <h2>Admin CP</h2>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+
+    <main role="main" class="container main-container">
+        <h1></h1>
+        <!--/*@thymesVar id="notice" type="aj"*/-->
+        <div class="alert alert-success" role="alert" th:if="${notice}" th:text="${notice}"> </div>
+        <div class="card">
+            <div class="card-header">
+                <div class="d-flex flex-row justify-content-between">
+                    <h5>Danh sách công ty</h5>
+                    <a href="/add">
+                        <button class="btn btn-success">Thêm</button>
+                    </a>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped table-dark">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Tên</th>
+                            <th scope="col">Mã số thuế</th>
+                            <th scope="col">Vốn điều lệ</th>
+                            <th scope="col">Lĩnh vực hoạt động</th>
+                            <th scope="col">Số lượng nhân sự</th>
+                            <th scope="col">Địa chỉ</th>
+                            <th scope="col">SĐT</th>
+                            <th scope="col">Diện tích sàn</th>
+                            <th scope="col">Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="company: ${listCompany}">
+                            <th scope="row" th:text="${company.id}"></th>
+                            <td th:text="${company.name}"></td>
+                            <td th:text="${company.taxCode}"></td>
+                            <td th:text="${company.AuthorizedCapital}"></td>
+                            <td th:text="${company.operationField}"></td>
+                            <td th:text="${company.staffAmount}"></td>
+                            <td th:text="${company.address}"></td>
+                            <td th:text="${company.phone}"></td>
+                            <td th:text="${company.groundArea}"></td>
+                            <td>
+                                <a th:href="@{/edit/{id}(id=${company.id})}">
+                                    <button class="btn btn-primary">Sửa</button>
+                                </a>
+                                <a th:href="@{/delete/{id}(id=${company.id})}">
+                                    <button class="btn btn-danger">Xóa</button>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <h5>LT Web 2020 - Coded by ThanhPham99 with ❤️️</h5>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/popper.min.js"></script>
+    <script src="https://getbootstrap.com/docs/4.0/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>
